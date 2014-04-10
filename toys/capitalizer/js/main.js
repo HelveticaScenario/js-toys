@@ -8,7 +8,7 @@ function getCorrectChar(letter, capitalized){
 
 var Letter = React.createClass({
   render: function(){
-    return React.DOM.span({},getCorrectChar(this.props.letter,this.props.capitalized));
+    return React.DOM.span({className: "letter " + (this.props.capitalized ?"upperCase":"lowerCase")},getCorrectChar(this.props.letter,this.props.capitalized));
   }
 });
 
@@ -30,7 +30,7 @@ var Toggle = React.createClass({
     return false;
   },
   render: function(){
-    return React.DOM.button({className: "toggle", onClick:this.handleClick},
+    return React.DOM.button({className: "toggle "+ (this.props.on ?"on":"off"), onClick:this.handleClick},
                           getCorrectChar(this.props.letter, this.props.on));
   }
 });
